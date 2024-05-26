@@ -19,7 +19,7 @@ export const loginUserHandler = async (req, res) => {
             if (authenticated) {
                 req.session.loggedUserId = findUserByUsername(username).id;
                 req.session.user = findUserByUsername(username);
-                return res.json({ success: true, message: 'User authenticated.', redirect: req.session.originalUrl || '/' });
+                return res.json({ success: true, message: 'User authenticated.', redirect: req.originalUrl || '/' });
             } else {
                 return res.json({ success: false, message: 'Invalid email or password.' });
             }
@@ -36,7 +36,7 @@ export const loginUserHandler = async (req, res) => {
 
             if (userId) {
                 req.session.loggedUserId = userId;
-                res.json({ success: true, message: 'User registered.', redirect: req.session.originalUrl || '/' });
+                res.json({ success: true, message: 'User registered.', redirect: req.originalUrl || '/' });
             } else {
                 res.json({ success: false, message: 'User registration failed.' });
             }
