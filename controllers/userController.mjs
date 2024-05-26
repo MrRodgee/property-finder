@@ -80,7 +80,7 @@ export const checkAuthenticated = async (req, res, next) => {
 // Show Login / Signup Page
 export const showLoginScreenHandler = (req, res, next) => {
     try{
-        res.render('auth/login-signup', { layout: 'empty', title: 'Login / Signup'});
+        res.render('login-signup', { layout: 'empty', title: 'Login / Signup'});
     } catch (error) {
         next(error);
     }
