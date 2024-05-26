@@ -1,0 +1,41 @@
+:root{
+    font-size: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+}
+
+.contact-info-head {
+    font-size: 3em;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: rgb(0, 0, 0);
+    background: rgb(238, 238, 238);
+}
+
+.contact-info-body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-phone p ,.working-hours p {
+    font-size: 2em;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.contact-info-body p span:hover{
+    text-decoration: underline;
+
+}

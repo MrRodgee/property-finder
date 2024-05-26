@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+body {
+    font-size: 10px;
+    font-family: 'Inter', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 60px;
+}
+
+/* Navigation bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 0 25px rgb(0, 0, 0, 0.1);
+}
+
+.navbar {
+    height: 60px;
+    margin: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    color: white;
+}
+
+/* Logo */
+.navbar .logo {
+    text-decoration: none;
+    color: black;
+    font-size: 2.8em;
+    font-weight: 500;
+}
+
+/* Navigation Buttons */
+.navbar .nav-part {
+    font-size: 1.5em;
+}
+
+.navbar .nav-part > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.5em;
+}
+
+.navbar .nav-part .page-buttons {
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar .nav-part .page-buttons:after {
+    content: '';
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    height: 1.5px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.navbar .nav-part .page-buttons:hover:after {
+    width: 100%;
+}
+
+.navbar .nav-part .profile > a {
+    border-bottom: 20px solid transparent;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar .nav-part .profile {
+    position: relative;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: black;
+    padding: 0.6em 1.2em;
+    transition: 0.3s ease-in-out transform;
+}
+
+.navbar .nav-part .profile:hover {
+    transform: scale(1.02);
+}
+
+.navbar .nav-part .dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #a0a0a0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.5);
+    padding: 0.5em;
+    top: 110%;
+    right: 0;
+    list-style-type: none;
+    width: 200px;
+}
+
+.navbar .nav-part .profile:hover .dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar .nav-part .dropdown li {
+    display: flex;
+}
+
+.navbar .nav-part .dropdown li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    border-radius: 5px;
+    margin: 1px 0;
+    width: 100%;
+}
+
+.navbar .nav-part .dropdown li a:hover {
+    background-color: black;
+    color: white;
+}
+
+.navbar .nav-part .dropdown li i {
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.navbar .nav-part .dropdown li a:hover i {
+    border: 1px solid white;
+}
+
+
+
+
+
+
+
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    padding: 10px 20%;
+    background: rgb(238, 238, 238);
+    
+}
+
+/* Logo */
+footer .logo {
+    text-decoration: none;
+    color: black;
+    font-size: 2.6em;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+/*Social Media Icons */
+footer .social-icons {
+    display: flex;
+    gap: 1em;
+    margin: 20px 0;
+}
+
+footer .social-icons a {
+    border-radius: 50%;
+    background-color: black;
+    color: rgb(238, 238, 238);
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+footer .social-icons a:hover {
+    background-color: #2b2b2b;
+}
+
+footer .social-icons a i {
+    font-size: 1.5em;
+}
+
+/* Navigation Buttons */
+footer ul {
+    list-style: none;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: left;
+    gap: 2.5em;
+    padding-left: 0;
+    margin-bottom: 2em;
+}
+
+footer .nav-buttons a {
+    text-decoration: none;
+    color: black;
+    letter-spacing: 1px;
+}
+
+footer .nav-buttons a:hover {
+    color: #2b2b2b;
+}
+
+/* App Links */
+footer .app-links-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+footer .app-links {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+footer .app-links img {
+    width: 100px;
+    height: 35px;
+}

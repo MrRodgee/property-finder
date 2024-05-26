@@ -1,0 +1,27 @@
+{
+  "name": "property-finder-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.mjs",
+  "scripts": {
+    "clean": "rm -rf node_modules",
+    "reinstall": "npm run clean && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node ./node_modules/nodemon/bin/nodemon.js --inspect ./start.mjs",
+    "watch": "node ./node_modules/nodemon/bin/nodemon.js ./start.mjs",
+    "start": "npm ./start.mjs"
+  },
+  "keywords": [],
+  "author": "up1083876@ac.upatras.gr",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^8.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.0"
+  }
+}

@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/styles/my-inquiries.css">
+
+<section class="My-inquiries">
+    <h1>My Inquiries</h1>
+    {{#if inquiries}}
+    <div class="title">
+        <h2>My Inquiries</h2>
+        <p> {{#if oneInquiry}} One inquiry has been{{else}} {{numOfInquiries}} inquries have been{{/if}} made</p>
+    </div>
+        <div class="inquiry">
+            <a href="/property/{{this.propertyId}}">
+
+            {{#each inquiries}}
+            <a href="/property/{{this.propertyId}}">
+                <div class="inquiry-info">
+                    <p><b>Property: {{this.address}}</b></p>
+                    <p><b>Interest shown by:</b> {{this.fName}} {{this.lName}}</p>
+                    <p><b>Email:</b> {{this.username}}</p>
+                    <p><b>Phone:</b> {{this.phone}}</p>
+                    <p><b>Message:</b> {{this.message}}</p>
+                    <p><b>Date:</b> {{this.createdAt}}</p>  
+                </div>
+            <a href="/property/{{this.propertyId}}"></a>
+            {{/each}}
+        </div>
+    {{else}}
+    <p>No inquiries have been made yet</p>
+    {{/if}}
+</section>

@@ -1,0 +1,226 @@
+/* Search section */
+.search-container {
+    min-height: 50em;
+    background-image: url("../images/top-down-hood.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 20%;
+}
+
+/* Main text*/
+.search-container h1 {
+    color: white;
+    font-size: 6em;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 100px;
+}
+
+/* Search form */
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Buy/Rent button */
+.buy-rent .tabs {
+    display: flex;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+    padding: 0.35em;
+    border-radius: 99px;
+}
+
+.buy-rent .tabs * {
+    z-index: 2;
+}
+
+.buy-rent input[type="radio"] {
+    display: none;
+}
+
+.buy-rent .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 80px;
+    font-size: 2em;
+    font-weight: 400;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+}
+
+.buy-rent input[type="radio"]:checked + label {
+    color: white;
+}
+
+.buy-rent input[id="buy"]:checked ~ .glider {
+    transform: translateX(0);
+}
+
+.buy-rent input[id="rent"]:checked ~ .glider {
+    transform: translateX(100%);
+}
+
+.buy-rent .glider {
+    position: absolute;
+    display: flex;
+    height: 40px;
+    width: 80px;
+    background-color: black;
+    color: white;
+    z-index: 1;
+    border-radius: 99px;
+    transition: 0.25s ease-out;
+}
+
+/* Search bar */
+.search-bar {
+    width: 130%;
+    max-width: 700px;
+    height: 40px;
+    background: white;
+    display: flex;
+    align-items: center;
+    border-radius: 6em;
+    padding: 1em 1em;
+    margin-top: 1em;
+}
+
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 20px;
+    font-size: 20px;
+    color: black;
+}
+
+.search-bar input::placeholder {
+    color: #b8b8b8;
+    font-size: 0.9em;
+}
+
+.search-bar button {
+    border: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.search-bar button img {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+/* Property Listings */
+.listings {
+    padding: 0px 19.5%;
+    margin-bottom: 50px;
+}
+
+.listings .title {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+.listings .title h2 {
+    margin-bottom: 5px;
+}
+
+.listings .title a {
+    color: black;
+    font-size: 1em;
+}
+
+.listings .properties {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 10px;
+    gap: 0 20px;
+    height: 320px;
+    overflow: hidden;
+}
+
+.listings .properties a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    display: block;
+}
+
+.listings .properties p {
+    line-height: 0.8em;
+}
+
+.listings .properties .property {
+    border-radius: 20px;
+    overflow: hidden;
+    width: 230px;
+    height: 290px;
+    margin: 20px 0;
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.listings .properties .property:hover {
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.listings .properties .property img {
+    width: 100%;
+    height: 60%;
+    display: block;
+}
+
+.property .details {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding: 0px 10px;
+    font-size: 12px;
+}
+
+.property .details p {
+    margin: 6px 0;
+}
+
+.property .details .type {
+    font-size: 1.1em;
+}
+
+.property .details .price {
+    font-size: 2em;
+}
+
+.property .details .info {
+    font-size: 1.1em;
+}
+
+.property .details .address {
+    font-size: 1.4em;
+}

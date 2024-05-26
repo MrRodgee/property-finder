@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/styles/my-listings.css">
+
+<section class="show-my-listings">
+    <div class="title">
+        <h2>My listings</h2>
+        <p>You have {{this.numOfResults}} properties listed</p>
+    <div class="properties">
+            {{#each properties}}
+                <a href="/property/{{this.id}}">
+                    <figure class="property">
+                        <img src="images/appartment.jpg" alt="House Image">
+                        <div class="details">
+                            <p class="type">{{this.type}} / {{#if this.subtype}}{{this.subtype}}{{else}}{{#if this.buildable}}Plot{{else}}Parcel{{/if}}{{/if}}</p>
+                            <p class="price"><b>€{{this.price}}</b></p>
+                            <p class="info">{{#if this.subtype}}{{#if this.bedrooms}}<b>{{this.bedrooms}}</b> bed  {{/if}}<b>{{this.bathrooms}}</b> bath  {{/if}}<b>{{this.surface}}</b> m&sup2</p>
+                            <p class="address">{{this.address}}</p>
+                        </div>
+                    </figure>
+                </a>
+            {{/each}}
+        </div>
+</section>

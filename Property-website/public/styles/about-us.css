@@ -1,0 +1,66 @@
+:root{
+    font-size: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.catchphrase{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3em;
+    background: rgb(238, 238, 238);
+
+}
+
+
+.catchphrase h1{
+    font-size: 4em;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: rgb(0, 0, 0);
+
+}
+
+.catchphrase p{
+    font-size: 2em;
+    text-align: center;
+    color: white;
+}
+
+.year_zero, .present_state{
+    display: flex;
+    margin-top: 1em;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    
+    
+}
+
+.year_zero img, .present_state img {
+    flex: 1; 
+    max-width: 100%; 
+    height: auto; 
+    width: 70em; 
+
+}
+
+.text_zero, .text_present{
+    flex: 1;
+    font-size: 1em;
+    padding: 1em;
+    font-size: 2em;
+    
+}
+
+.text_zero h2, .text_present h2{
+    flex:1;
+    font-size: 2em;
+    color: rgb(4, 2, 2);
+}

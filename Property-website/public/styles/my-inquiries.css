@@ -1,0 +1,94 @@
+.My-inquiries {
+    padding: 0px 19.5%;
+    margin-bottom: 50px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.title h2 {
+    margin-bottom: 5px;
+}
+
+.title p {
+    color: black;
+    font-size: 15px;
+    margin-top: 0;
+}
+
+.inquiry {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 10px;
+    gap: 0 20px;
+}
+
+.inquiry a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    display: block;
+}
+
+.inquiry p {
+    line-height: 0.8em;
+}
+
+.inquiry .inquiry-info {
+    border-radius: 20px;
+    overflow: hidden;
+    width: 230px;
+    height: 290px;
+    margin: 20px 0;
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.inquiry .inquiry-info:hover {
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.inquiry-info  {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding: 0px 10px;
+    font-size: 12px;
+}
+
+.inquiry-info p{
+    font-size: 14px;
+
+
+}
+
+/* 
+.property .details p {
+    margin: 6px 0;
+}
+
+.property .details .type {
+    font-size: 1.1em;
+}
+
+.property .details .price {
+    font-size: 2em;
+}
+
+.property .details .info {
+    font-size: 1.1em;
+}
+
+.property .details .address {
+    font-size: 1.4em;
+} */

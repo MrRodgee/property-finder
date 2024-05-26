@@ -1,0 +1,284 @@
+.search-filters {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.search-filters input[type="text"] {
+    margin: 20px 0 20px 20px;
+    width: 320px;
+    height: 20px;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #000000;
+    border-radius: 35px;
+}
+
+.search {
+    background-color: #000000;
+    color: white;
+    
+}
+
+.price-cont,
+.surface-cont,
+.property-type,
+.subtype-type,
+.sale-type,
+.moreFilters,
+.additional-filters {
+    display: inline-block;
+    position: relative;
+    margin: 20px 0 20px 0px;
+}
+
+.additional-filters {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+}
+
+/* Adjusting select elements to match the button styles */
+select,
+#price-btn,
+#surface-btn,
+#filtersBtn,
+#floor-btn,
+#levels-btn,
+#bathrooms-btn,
+#bedrooms-btn,
+#parking-btn,
+#year-btn,
+#buildable-btn,
+input[type="number"] {
+    background-color: hsl(0, 0%, 100%);
+    color: rgb(0, 0, 0);
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 0.1em solid #000000;
+}
+
+#filtersBtn {
+    background-color: #000000;
+    color: white;
+    
+}
+
+
+select:focus,
+.search-filters input[type="text"]:focus {
+    outline: none;
+    border: 0.1em solid #000000;
+}
+
+input[type="number"] {
+    background-color: white;
+    color: black;
+}
+
+input[type="number"] ::-webkit-outer-spin-button,::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Menu item styles */
+.type-menu li,
+.sale-menu li,
+.subtype-menu li {
+    border-bottom: 1px solid #ddd;
+}
+
+.type-menu li:last-child,
+.sale-menu li:last-child,
+.subtype-menu li:last-child {
+    border-bottom: none;
+}
+
+/* Menu links */
+.type-menu li a,
+.sale-menu li a,
+.subtype-menu li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+.type-menu li a:hover,
+.sale-menu li a:hover,
+.subtype-menu li a:hover {
+    background-color: #000000;
+    color: white;
+}
+
+#price-menu, 
+#surface-menu,
+#bathrooms-menu,
+#bedrooms-menu,
+#bathrooms-menu,
+#parking-menu,
+#year-menu,
+#levels-menu,
+#floor-menu,
+#buildable-menu {
+    display:none; /* Hide the dropdown menu initially */
+    position: absolute; /* Position the dropdown absolutely within the container */
+    top: 100%; /* Position the dropdown below the button */
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px; /* Set a minimum width for the dropdown */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Add a shadow effect */
+    z-index: 1; /* Ensure the dropdown appears above other elements */
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#buildable-menu,
+#parking-menu{
+    min-width: 80px;
+}
+
+#additionalFilters input[type=number]::-webkit-inner-spin-button,
+#additionalFilters input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#year-menu input[type="number"],
+#levels-menu input[type="number"],
+#floor-menu input[type="number"],
+#bathrooms-menu input[type="number"],
+#bedrooms-menu input[type="number"] {
+    background-color: hsl(0, 0%, 100%);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0.1em solid #000000;
+    max-width: 50px;
+    padding: 10px;
+}
+
+
+/* Search button styles */
+#searchBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.search img {
+    width: 25px;
+    height: auto;
+}
+
+hr {
+    border: 1px solid #000000;
+    margin: 3px 0;
+}
+
+
+/* Search Results */
+.listings {
+    padding: 0px 19.5%;
+    margin-bottom: 50px;
+}
+
+.listings .title {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.listings .title h2 {
+    margin-bottom: 5px;
+}
+
+.listings .title p {
+    color: black;
+    font-size: 1em;
+    margin-top: 0;
+}
+
+.listings .properties {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 20px 0;
+    padding: 10px;
+    gap: 0 20px;
+}
+
+.listings .properties a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    display: block;
+}
+
+.listings .properties p {
+    line-height: 0.8em;
+}
+
+.listings .properties .property {
+    border-radius: 20px;
+    overflow: hidden;
+    width: 230px;
+    height: 290px;
+    margin: 20px 0;
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.listings .properties .property:hover {
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.listings .properties .property img {
+    width: 100%;
+    height: 60%;
+    display: block;
+}
+
+.property .details {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding: 0px 10px;
+    font-size: 12px;
+}
+
+.property .details p {
+    margin: 6px 0;
+}
+
+.property .details .type {
+    font-size: 1.1em;
+}
+
+.property .details .price {
+    font-size: 2em;
+}
+
+.property .details .info {
+    font-size: 1.1em;
+}
+
+.property .details .address {
+    font-size: 1.4em;
+}

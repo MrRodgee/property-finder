@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="/styles/filters.css">
+
+<form action="/search" method="POST" class="search-filters">
+        <input type="text" name="locationQuery" placeholder="Country, City, ZIP Code, Neighborhood etc">
+    
+    <div class="property-type">
+        <select name="propertyFilters[type]" id="typeSelect">
+            <option value="Residential">Residential</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Land">Land</option>
+        </select>
+    </div>
+
+    <div class="subtype-type">
+        <select name="propertyFilters[subtype]" id="subtypeSelect">
+            <option value="">Subtype</option>
+            <!-- Subtype options will be populated dynamically based on property type selection -->
+        </select>
+    </div>
+
+    <div class="sale-type">
+        <select name="propertyFilters[forRent]" id="saleSelect">
+            <option value="1">Rent</option>
+            <option value="0">Sale</option>
+        </select>
+    </div>
+
+    <div class="price-cont">
+        <button id="price-btn">Price</button>
+        <div id="price-menu">
+           <div class="price-min">
+                <input type="number" name="propertyFilters[minPrice]" value="null" placeholder="MinPrice" id="priceMin">
+        </div>
+        <div class="price-max">
+            <input type="number" name="propertyFilters[maxPrice]" placeholder="MaxPrice" value="null" id="priceMax">
+                
+        </div>
+    </div>
+    </div>
+
+    <div class="surface-cont">
+        <button id="surface-btn">Surface</button>
+        <div id="surface-menu">
+                <div class="surface-min">
+                    <input type="number" name="propertyFilters[minSurface]" placeholder="MinArea" value=" null" id="surfaceMin">
+                       
+                </div>
+                <div class="surface-max">
+                    <input type="number" name="propertyFilters[maxSurface]" placeholder="MaxArea" value=" null" id="surfaceMax">
+                </div>
+        </div>
+    </div>
+    <div class="moreFilters">
+        <button type="button"  id="filtersBtn">More</button>
+    </div>
+
+    <div class="additional-filters" id="additionalFilters" >
+        <!-- Additional filters will be added here based on the property type -->
+    </div>
+
+    <div class="searchFilter">
+        <button type="submit" class="search" id="searchBtn">
+            {{!-- <img src="images/search-icon.png" alt="Search"> --}}
+            Search
+        </button>
+    </div>
+</form>
+<hr>
+
+<section class="listings">
+    {{#if properties}}
+        <div class="title">
+            <h2>Search results</h2>
+            <p>Showing {{numOfResults}} results</p>
+        </div>
+        
+        <div class="properties">
+            {{#each properties}}
+                <a href="/property/{{this.id}}">
+                    <figure class="property">
+                        <img src="images/appartment.jpg" alt="House Image">
+                        <div class="details">
+                            <p class="type">
+                                    {{#if this.subtype}}
+                                        {{this.type}} / {{this.subtype}}
+                                    {{else}}
+                                        {{#if this.buildable}}
+                                            {{this.type}} / Plot
+                                        {{else}}
+                                            {{this.type}} / Parcel
+                                        {{/if}}
+                                    {{/if}}
+                            </p>
+                            <p class="price"><b>
+                                <script>
+                                    if ({{this.forRent}}) {
+                                        document.write('€' + ({{this.price}}).toLocaleString() + '/mo');
+                                    } else {
+                                        document.write('€' + ({{this.price}}).toLocaleString());
+                                    }
+                                </script></b>
+                            </p>
+                            <p class="info">
+                                {{#if this.subtype}}
+                                    {{#if this.bedrooms}}
+                                        <b>{{this.bedrooms}}</b> bed 
+                                    {{/if}}
+                                    <b>{{this.bathrooms}}</b> bath 
+                                {{/if}}
+                                    <b>{{this.surface}}</b> m&sup2
+                            </p>
+                            <p class="address">{{this.address}}</p>
+                        </div>
+                    </figure>
+                </a>
+            {{/each}}
+        </div>
+    {{/if}}
+    
+</section>
+
+<script src="scripts/search-properties-script.mjs" defer></script>
+<script src="scripts/button.js" defer></script>

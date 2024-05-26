@@ -1,0 +1,214 @@
+<link rel="stylesheet" href="/styles/property.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+<div class="content">
+
+    <div class="photos">
+        <div class="main-photo">
+            <img src="/images/appartment.jpg" alt="property-photo">
+        </div>
+        <div class="secondary-photos">
+            <div class="second-photo">
+                <img src="/images/appartment.jpg" alt="property-photo">
+            </div>
+            <div class="third-photo">    
+                <img src="/images/appartment.jpg" alt="property-photo">
+            </div>
+        </div>
+    </div>
+
+    <div class="info-interest-container">
+        <div class="property-info">
+            <div class="address-and-type">
+                <div class="address-favorite">
+                    <p class="address">{{property.address}}</p>
+                    <a href="/favorite/{{property.id}}" class="{{#if isFavorite}}is-favorite{{else}}is-not-favorite{{/if}}">
+                        {{#if isFavorite}}
+                            <i class="fas fa-heart"></i>Saved
+                        {{else}}
+                            <i class="far fa-heart"></i>Save
+                        {{/if}}
+                    </a>
+                </div>
+                <p class="type">{{property.type}} /
+                    {{#if property.subtype}}
+                        {{property.subtype}}
+                    {{else}}
+                        {{#if property.buildable}}
+                            Plot
+                        {{else}}
+                            Parcel
+                        {{/if}}
+                    {{/if}}
+                </p>
+            </div>
+            <div class="price">
+                <p class="total-price">
+                    <script>
+                        if ({{property.forRent}}) {
+                            document.write('€' + ({{property.price}}).toLocaleString() + '/mo');
+                        } else {
+                            document.write('€' + ({{property.price}}).toLocaleString());
+                        }
+                    </script>
+                </p>
+                <p class="price-per-square">
+                    <script>
+                        document.write('€' + Number(parseFloat({{property.pricePerSquare}}).toFixed(2)).toLocaleString('en-US'));
+                    </script>/m&sup2
+                </p>
+            </div>
+
+            <hr>
+
+            <div class="overview">
+                <div class="surface">
+                    <p>Surface</p>
+                    <p><b>{{property.surface}} m&sup2</b></p>
+                </div>
+                {{#if property.bedrooms}}
+                <div class="bedrooms">
+                    <p>Bedrooms</p>
+                    <p><b>{{property.bedrooms}}</b></p>
+                </div>
+                {{/if}}
+                {{#if property.bathrooms}}
+                <div class="bathrooms">
+                    <p>Bathrooms</p>
+                    <p><b>{{property.bathrooms}}</b></p>
+                </div>
+                {{/if}}
+                {{#unless property.bedrooms}}
+                <div class="parking">
+                    <p>Parking</p>
+                    <p><b>{{#if property.parking}}Yes{{else}}No{{/if}}</b></p>
+                </div>
+                {{/unless}}
+            </div>
+
+            <hr>
+        
+            <div class="description">
+                <h2>Description</h2>
+                <p>{{property.description}}</p>
+            </div>
+
+            <hr>
+
+            <div class="location">
+                <h2>Location</h2>
+
+                <p>{{property.address}}, {{location.neighborhood}}, {{location.city}}, {{location.country}}</p>
+            </div>
+
+            <hr>
+
+            <div class="details">
+                <h2>Details</h2>
+
+                <div>
+                    <p>Price</p>
+                    <p>
+                        <b>
+                            <script>
+                                if ({{property.forRent}}) {
+                                    document.write('€' + ({{property.price}}).toLocaleString() + '/mo');
+                                } else {
+                                    document.write('€' + ({{property.price}}).toLocaleString());
+                                }
+                            </script>
+                        </b>
+                    </p>
+                </div>
+
+                <div>
+                    <p>Price per Square</p>
+                    <p>
+                        <b>
+                            <script>
+                                document.write('€' + Number(parseFloat({{property.pricePerSquare}}).toFixed(2)).toLocaleString('en-US'));
+                            </script>/m&sup2
+                        </b>
+                    </p>
+                </div>
+
+                <div>
+                    <p>Surface</p>
+                    <p><b>{{property.surface}} m&sup2</b></p>
+                </div>
+
+                <div>
+                    <p>Year built</p>
+                    <p><b>{{property.constructionYear}}</b></p>
+                </div>
+                {{#if property.floor}}
+                <div>
+                    <p>Floor</p>
+                    <p><b>{{property.floor}}</b></p>
+                </div>
+                {{/if}}
+                {{#if property.levels}}
+                <div>
+                    <p>Levels</p>
+                    <p><b>{{property.levels}}</b></p>
+                </div>
+                {{/if}}
+                {{#if property.bedrooms}}
+                    <div>
+                        <p>Bedrooms</p>
+                        <p><b>{{property.bedrooms}}</b></p>
+                    </div>
+                {{/if}}
+
+                {{#if property.bathrooms}}
+                    <div>
+                        <p>Bathrooms</p>
+                        <p><b>{{property.bathrooms}}</b></p>
+                    </div>
+                {{/if}}
+
+                {{#unless property.bedrooms}}
+                    {{#if property.bathrooms}}
+                        <div>
+                            <p>Parking</p>
+                            <p><b>{{#if property.parking}}Yes{{else}}No{{/if}}</b></p>
+                        </div> 
+                    {{/if}}               
+                {{/unless}}
+
+                
+
+                <div>
+                    <p>Publish date</p>
+                    <p><b>{{property.publishedAt}}</b></p>
+                </div>
+                
+            </div>
+
+            <hr>
+
+            <div class="owner">
+                <h2>Listed by</h2>
+                <p>{{listedBy.lName}} {{listedBy.fName}}</p>
+                <p>{{listedBy.username}}</p>
+                <p>{{listedBy.phone}}</p>
+            </div>
+
+        </div>
+
+        <div class="interest-form">
+            <p>I'm interested in this property</p>
+            <form action="/inquiry/{{property.id}}" method="POST">
+                <div class="name">
+                    <input type="text" placeholder="First name">
+                    <input type="text" placeholder="Last name">
+                </div>
+                <input type="email" placeholder="Email">
+                <input type="tel" placeholder="Phone number">
+                <textarea name="message" id="" cols="30" rows="10" placeholder="Write your message">I'm interested in this property at {{property.address}}. Please provide me with more information. Thank you!</textarea>
+                <button type="submit">Email Agent</button>
+            </form>
+        </div>
+    </div>
+</div>
+

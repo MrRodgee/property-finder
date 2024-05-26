@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="/styles/my-favorites.css">
+
+<section class="favorites">
+    {{#if favorites}}
+        <div class="title">
+            <h2>My Favorites</h2>
+            <p>{{numOfFavorites}} saved {{#if oneFavorite}}property{{else}}properties{{/if}}</p>
+        </div>
+        
+        <div class="properties">
+            {{#each favorites}}
+                <a href="/property/{{this.id}}">
+                    <figure class="property">
+                        <img src="images/appartment.jpg" alt="House Image">
+                        <div class="details">
+                            <p class="type">
+                                    {{#if this.subtype}}
+                                        {{this.type}} / {{this.subtype}}
+                                    {{else}}
+                                        {{#if this.buildable}}
+                                            {{this.type}} / Plot
+                                        {{else}}
+                                            {{this.type}} / Parcel
+                                        {{/if}}
+                                    {{/if}}
+                            </p>
+                            <p class="price"><b>
+                                <script>
+                                    if ({{this.forRent}}) {
+                                        document.write('€' + ({{this.price}}).toLocaleString() + '/mo');
+                                    } else {
+                                        document.write('€' + ({{this.price}}).toLocaleString());
+                                    }
+                                </script></b>
+                            </p>
+                            <p class="info">
+                                {{#if this.subtype}}
+                                    {{#if this.bedrooms}}
+                                        <b>{{this.bedrooms}}</b> bed 
+                                    {{/if}}
+                                    <b>{{this.bathrooms}}</b> bath 
+                                {{/if}}
+                                    <b>{{this.surface}}</b> m&sup2
+                            </p>
+                            <p class="address">{{this.address}}</p>
+                        </div>
+                    </figure>
+                </a>
+            {{/each}}
+        </div>
+    {{/if}}
+    
+
+</section>
+
