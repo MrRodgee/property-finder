@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM filters loaded');
-
     const typeSelect = document.getElementById('typeSelect');
     const subtypeSelect = document.getElementById('subtypeSelect');
     

@@ -1,29 +1,39 @@
 <link rel="stylesheet" href="/styles/my-inquiries.css">
 
-<section class="My-inquiries">
-    <h1>My Inquiries</h1>
+<section class="container">
     {{#if inquiries}}
-    <div class="title">
-        <h2>My Inquiries</h2>
-        <p> {{#if oneInquiry}} One inquiry has been{{else}} {{numOfInquiries}} inquries have been{{/if}} made</p>
-    </div>
-        <div class="inquiry">
-            <a href="/property/{{this.propertyId}}">
-
+        <div class="title">
+            <h2>My Inquiries</h2>
+            <p>You have {{numOfInquiries}} {{#if oneInquiry}}inquiry{{else}}inquiries{{/if}}</p>
+        </div>
+        
+        <div class="inquiries">
             {{#each inquiries}}
-            <a href="/property/{{this.propertyId}}">
-                <div class="inquiry-info">
-                    <p><b>Property: {{this.address}}</b></p>
-                    <p><b>Interest shown by:</b> {{this.fName}} {{this.lName}}</p>
-                    <p><b>Email:</b> {{this.username}}</p>
-                    <p><b>Phone:</b> {{this.phone}}</p>
-                    <p><b>Message:</b> {{this.message}}</p>
-                    <p><b>Date:</b> {{this.createdAt}}</p>  
+                <div class="inquiry">
+                    <a href="/property/{{this.propertyId}}">
+                        <div class="inquiry-info">
+                            <h1>Property</h1>
+                            <p>{{this.address}}</p>
+                            <h1>Interest shown by</h1>
+                            <p>{{this.fName}} {{this.lName}}</p>
+                            <h1>Email</h1>
+                            <p>{{this.username}}</p>
+                            <h1>Phone</h1>
+                            <p>{{this.phone}}</p>
+                            <h1>Message</h1>
+                            <p>{{this.message}}</p>
+                            <h1>Date</h1>
+                            <p>{{this.createdAt}}</p>
+                        </div>
+                    </a>
                 </div>
-            <a href="/property/{{this.propertyId}}"></a>
             {{/each}}
         </div>
     {{else}}
-    <p>No inquiries have been made yet</p>
+        <div class="title-no-inquiries">
+            <h1>You have no new inquiries</h1>
+        </div>
     {{/if}}
+    
 </section>
+

@@ -19,7 +19,7 @@ export const loginUserHandler = async (req, res) => {
             if (authenticated) {
                 req.session.loggedUserId = findUserByUsername(username).id;
                 req.session.user = findUserByUsername(username);
-                return res.json({ success: true, message: 'User authenticated.', redirect: '/' });
+                return res.json({ success: true, message: 'User authenticated.', redirect: req.session.originalUrl || '/' });
             } else {
                 return res.json({ success: false, message: 'Invalid email or password.' });
             }
@@ -36,7 +36,7 @@ export const loginUserHandler = async (req, res) => {
 
             if (userId) {
                 req.session.loggedUserId = userId;
-                res.json({ success: true, message: 'User registered.', redirect: '/' });
+                res.json({ success: true, message: 'User registered.', redirect: req.session.originalUrl || '/' });
             } else {
                 res.json({ success: false, message: 'User registration failed.' });
             }
@@ -60,13 +60,12 @@ export const logoutUserHandler = async (req, res) => {
 export const checkAuthenticated = async (req, res, next) => {
     try {
         if (req.session.loggedUserId) {
-            console.log("user is authenticated", req.originalUrl);
             next();
         } else {
             if (req.originalUrl === "/login") {
                 next();
             } else {
-                console.log("not authenticated, redirecting to /login");
+                req.session.originalUrl = req.originalUrl;
                 res.redirect('/login');
             }
         }
@@ -75,7 +74,6 @@ export const checkAuthenticated = async (req, res, next) => {
         next(error);
     }
 };
-
 
 // Show Login / Signup Page
 export const showLoginScreenHandler = (req, res, next) => {

@@ -45,7 +45,6 @@ export const createInquiryHandler = (req, res) => {
 
         const inquiryId = createInquiry({ fromId, propertyId, message });
         res.redirect(`/property/${propertyId}`);
-        // res.json({ success: true, message: 'Inquiry created.', inquiryId });
     } catch (error) {
         console.error('Error creating inquiry:', error);
         next(error)
@@ -53,7 +52,7 @@ export const createInquiryHandler = (req, res) => {
 };
 
 
-export const showUserInquiriesHandler = (req, res) => {
+export const showInquiriesHandler = (req, res) => {
     const userId = req.session.loggedUserId;
     
     try {

@@ -1,9 +1,8 @@
 import express from 'express';
-import { loginUserHandler, logoutUserHandler, checkAuthenticated } from './controllers/userController.mjs';
-import { showLoginScreenHandler } from './controllers/userController.mjs';
+import { loginUserHandler, logoutUserHandler, checkAuthenticated, showLoginScreenHandler } from './controllers/userController.mjs';
 import { createPropertyHandler, searchPropertiesHandler, showHomePropertiesHandler} from './controllers/propertyController.mjs';
-import{ showPropertyPageHandler, showUserPropertiesHandler } from './controllers/propertyController.mjs';
-import { toggleFavoriteHandler, showFavoritesHandler,showUserInquiriesHandler ,createInquiryHandler} from './controllers/favoriteInquiryController.mjs';
+import { showPropertyPageHandler, showUserPropertiesHandler } from './controllers/propertyController.mjs';
+import { toggleFavoriteHandler, showFavoritesHandler, showInquiriesHandler, createInquiryHandler } from './controllers/favoriteInquiryController.mjs';
 
 
 const router = express.Router();
@@ -63,7 +62,7 @@ router.get('/favorite/:propertyId', checkAuthenticated, toggleFavoriteHandler);
 router.post('/inquiry/:propertyId', checkAuthenticated, createInquiryHandler);
 
 // My-inquires page
-router.get('/my-inquiries', checkAuthenticated,showUserInquiriesHandler);
+router.get('/my-inquiries', checkAuthenticated, showInquiriesHandler);
 
 
 export default router;
